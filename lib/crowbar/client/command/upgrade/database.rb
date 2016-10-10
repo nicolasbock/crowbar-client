@@ -50,7 +50,7 @@ module Crowbar
                 err request.parsed_response["error"]
               end
 
-              response = JSON.parse(request.body)
+              response = JSON.parse(request.body) unless request.body.nil?
 
               steps_with_messages.each do |step, message|
                 next if response[step.to_s]["success"]
